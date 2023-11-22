@@ -1,0 +1,39 @@
+<mvc:View controllerName="smarttable.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <content>
+    <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="Products" persistencyKey="SmartFiter_Explored">
+    <smartFilterBar:controlConfiguration>
+    <smartFilterBar:ControlConfiguration key="ID" visibleInAdvancedArea="true">
+             <smartFilterBar:defaultFilterValues>
+                 <smartFilterBar:SelectOption low="1">
+                 </smartFilterBar:SelectOption>
+             </smartFilterBar:defaultFilterValues>
+         </smartFilterBar:ControlConfiguration>
+          <smartFilterBar:ControlConfiguration key="Name" visibleInAdvancedArea="true">
+             <smartFilterBar:defaultFilterValues>
+                 <smartFilterBar:SelectOption low="Milk">
+                 </smartFilterBar:SelectOption>
+             </smartFilterBar:defaultFilterValues>
+         </smartFilterBar:ControlConfiguration>
+     </smartFilterBar:controlConfiguration>
+    </smartFilterBar:SmartFilterBar>
+        <smartTable:SmartTable smartFilterId="smartFilterBar" id="SmartTable" initiallyVisibleFields="ID,Name,Description,ReleaseDate" 
+        entitySet="Products"
+        tableType="ResponsiveTable" enableExport="true" useVariantManagement="true" useTablePersonalisation="true" header="Product Table"
+        showRowCount="true" persistencyKey="SmartTable_Explored" enableAutoBinding="true" enableAutoColumnWidth="false" class="sapUiresponsiveContantPadding">
+           <Table id="idTable" mode="MultiSelect">
+                <headerToolbar>
+                    <OverflowToolbar>
+                     <ToolbarSpacer/>
+                     <Button class="sapUiSmallMarginBeginEnd" type="Reject" icon="sap-icon://delete" text="Delete" press="onDelete"/>
+                     </OverflowToolbar>
+                </headerToolbar>
+           </Table>
+         </smartTable:SmartTable>
+        </content>
+    </Page>
+</mvc:View>
